@@ -1,0 +1,55 @@
+/* ======= Header styling ========*/
+.header {
+    background-color: #cc4a33;
+    min-height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(5px + 2vmin);
+    color: white;
+    padding: 0 10px;
+    font-family: Inter, Haettenschweiler, 'Arial Narrow Bold', sans-serif sans serif;
+}
+.header-icon {
+    margin-right: 10px;
+    background-color: #cc4a33;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* ======= Main styling ========*/
+.entry {
+    display: flex;
+    gap: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    height: 60%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+}
+.entry-img {
+    width: 168px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.entry-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
