@@ -1,0 +1,95 @@
+/* For the joke component */
+.joke-header {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.joke-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+@media screen and (max-width: 600px) {
+  .joke-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.joke {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 600px;
+  text-align: left;
+  background-color: rgb(174, 177, 177);
+}
+
+
+/*  */
+/* counter styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #9f9494;
+  margin: 0;
+  padding: 0;
+} 
+.counter {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+ .counter > button {
+  background-color: #43c0e2;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  font-size: 1.5rem;
+  margin-top: 60px;
+
+} 
+.minus {
+  margin-right: -25px;
+  z-index: 1;
+}
+.plus {
+  margin-left: -25px;  
+}
+ h2 {
+  margin: 0 15px;
+  min-width: 20px;
+  text-align: center;
+  padding: 2.5rem;
+  background-color: #242c25;
+  color: white;
+  border-radius: 50%;
+}
+.counter-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Dj pads styling */
+.pad-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+.pads {
+    width: 100px;
+    margin: 0.25rem;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    background: #221a3d;
+    height: 120px;
+    opacity: 0.1;
+}
+.on {
+    opacity: 1;
+}
