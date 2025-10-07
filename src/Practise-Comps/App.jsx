@@ -2,7 +2,8 @@
 // To view this project render contents of this file in App.jsx located in src
 // import Joke from "./Joke"
 // import jokesData from "./jokesData"
-import { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import WindowTracker from './WindowTracker'
 import "./app.css"
 // import CatA from "./assets/cat-a.jpg"
 // import CatB from "./assets/cat-b.jpg"
@@ -96,41 +97,69 @@ const App = () => {
     />
    
    ))
+    // const [starWarsdata, setStarWarsData] = useState({})
+    // const [count, setCount] = useState(1)
     
+    
+
+    // React.useEffect(() => {
+    //     console.log("worked")
+    //     fetch(`https://swapi.dev/api/people/${count}`)
+    // .then(res => res.json())
+    //  .then(data => setStarWarsData(data))
+    // }, [count])
+    const [show, setShow] = React.useState(true)
+    function handleClick() {
+        setShow(prevShow => !prevShow)
+        console.log(show)
+    }
   return (
-    <Fragment>
-        {/* <h1 className="joke-header">Jokes App</h1>
-        <h2>Here are a few jokes to make you laugh</h2>
-            <p>Hope you enjoy them!</p>
-        <div className="joke-container">
-            {jokeElements}
-        </div> */}
-        {/* Learning state */}
-         {/* <h1 className='title'>Is state important to know?</h1>
-                    <button
-                    onClick={handleClick}
-                    className="value">{isImportant}</button>
-                    <div className="container">
-                        <h1>How many times is the tutor going to say state in this section</h1>
-                        <div className="counter">
-                            <button 
-                            onClick={minus}
-                            className="minus" aria-label='minus-button'>-</button>
-                            <Count 
-                            number={count}
-                            />
-                            <button 
-                            onClick={add}
-                            className="plus" aria-label='add-button'>+</button>
-                        </div>
-                    </div> */}
-            {/* DJ pad buttons */}
-            <div className='pad-container'>
-                {buttonElements}
-            </div>
+    <div className='container'>
+        <button
+        onClick={handleClick}>Toggle WindowTracker</button>
+    {show === true && <WindowTracker />}
+    </div>
+
+    //  <div>
+    //     <h2 className='counter'>The count is {count}</h2>
+    //     <button onClick={ () => setCount(prevCount => prevCount + 1)}>Get next character</button>
+    //    <pre>{JSON.stringify(starWarsdata, null, 2)}</pre>
+    // </div>
+    // <Fragment>
+    //     <h1 className="joke-header">Jokes App</h1>
+    //     <h2>Here are a few jokes to make you laugh</h2>
+    //         <p>Hope you enjoy them!</p>
+    //     <div className="joke-container">
+    //         {jokeElements}
+    //     </div> */
+    //     Learning state
+    //      <h1 className='title'>Is state important to know?</h1>
+    //                 <button
+    //                 onClick={handleClick}
+    //                 className="value">{isImportant}</button>
+    //                 <div className="container">
+    //                     <h1>How many times is the tutor going to say state in this section</h1>
+    //                     <div className="counter">
+    //                         <button 
+    //                         onClick={minus}
+    //                         className="minus" aria-label='minus-button'>-</button>
+    //                         <Count 
+    //                         number={count}
+    //                         />
+    //                         <button 
+    //                         onClick={add}
+    //                         className="plus" aria-label='add-button'>+</button>
+    //                     </div>
+    //                 </div>
+    //          DJ pad buttons
+    //         <div className='pad-container'>
+    //             {buttonElements}
+    //         </div>
           
-    </Fragment>
+    // </Fragment>
+   
   )
 }
 
 export default App
+

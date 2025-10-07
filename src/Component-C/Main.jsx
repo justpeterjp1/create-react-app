@@ -10,15 +10,22 @@ const Main = () => {
        const newIngredient = formData.get("ingredient")
        if (newIngredient !== "" && !ingredients.includes(newIngredient.toLowerCase())) {
              setNewIngredient(prevIngredients => [...prevIngredients, newIngredient])
-       }
-        
+       } 
     }
+    const recipeSection = React.useRef(null)
 // Getting actual recipe
     const [recipe, setRecipe] = React.useState(false)
    async function getRecipe() {
     const generatedRecipe = await getRecipeFromGroq(ingredients)
         setRecipe(generatedRecipe)
     }
+    React.useEffect( function() {
+        if (recipe !== "" && recipeSection.current !== null) {
+        recipeSection.current.scrollIntoView({ 
+            behavior: "smooth" })    
+
+        }
+    }, [recipe])
   return (
     <main>
         <form 
@@ -41,7 +48,7 @@ const Main = () => {
         ))}
         </ul>
         {ingredients.length > 3 && <div className="get-recipe-container">
-            <div>
+            <div  >
                 <h3>Ready for a recipe?</h3>
                 <p>Generate a recipe from your list of ingredients</p>
             </div>
@@ -50,10 +57,13 @@ const Main = () => {
             >Get a recipe</button>
         </div>}
         </section>}
-
-            {recipe && <AiRecipe 
+            <div ref={recipeSection} >
+                {recipe && <AiRecipe
+            
                 recipe={recipe}
             />}
+            </div>
+            
     </main>
   )
 }
