@@ -1,5 +1,6 @@
 // Component-B/App.jsx
 // To view this project render contents of this file in App.jsx located in src
+// PROJECT NAME >>>> TRAVEL JOURNAL
 import "./App.css"
 import Entry from "./Entry"
 import Header from './Header'

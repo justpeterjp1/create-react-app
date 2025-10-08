@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "hanken Grotesk" Arial;
+    background-color: #262626;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+   
+}
+/* main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+} */
+.header {
+    text-align: center;
+}
+.header > h1 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #F9F4DA;
+}
+.header > p {
+    font-size: 1rem;
+    max-width: 350px;
+    color: #8E8E8E;
+}
+/*  Status Section */
+.status {
+  text-align: center;
+  margin: 10px;
+  background-color: #262626;
+  border-radius: 2px;
+  padding: 8px;
+  height: 60px;
+  min-height: 65x;
+  /* or any height that fits your win/loss text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.neutral {
+    background-color: #262626;
+    color: #262626;
+    min-height: 45px;
+}
+.statusWon {
+    background-color: green;
+color: #F9F4DA;
+}
+.statusLost {
+    background-color: red;
+color: #F9F4DA;
+}
+
+.status > p, .status > h2 {
+    margin: 3px;
+    text-align: center;
+}
+.short-p {
+    padding-right: 20px;
+    font-size: 1.1rem;
+}
+.farewell {
+   text-align: center;
+  margin: 10px;
+   background-color: rgb(171, 56, 194);
+color: #F9F4DA;
+  border-radius: 2px;
+  padding: 8px;
+  min-height: 40px;
+  max-width: 350px;
+  /* or any height that fits your win/loss text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+span {
+    display: none;
+}
+.chips {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3px;
+    list-style: none;
+    margin-top: 5px;
+    max-width: 350px;
+    margin-top: 25px;
+      margin-bottom: 20px;
+}
+.lost {
+    opacity: 0.2;
+}
+.overlay {
+  position: fixed;        
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 900;             
+}
+
+.sad-emoji {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+  transform: rotate(-15deg);
+  opacity: 0.9;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+h4 {
+  margin-bottom: 0;
+  margin-top: 0;
+    padding: 4px;
+   border-radius: 1px;
+}
+
+/* Words Guessing Section */
+.gameLetters {
+  background-color: #323232;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 12px;
+  margin-bottom: 20px;  
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: no-wrap;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+}
+
+.guessWordSpan {
+  display: inline-block;
+  color: #3a3a3a;
+  text-transform: uppercase;
+  padding: 5px 8px;
+  margin: 10px;
+  line-height: 1.2;
+  border-bottom: 3px solid currentColor;
+  border-radius: 2px;
+  background-color: #3a3a3a;
+  transition: all 0.3s ease;
+}
+
+.guessWordSpan.hidden {
+  color: transparent;
+  border-bottom-color: aliceblue;
+}
+
+.guessWordSpan.display {
+  color: #fff;
+  border-bottom-color: #4c1ba8;
+}
+.gameOver {
+    background-color: rgba(214, 52, 52, 0.539);
+}
+
+/* Keyboard Buttons */
+.letterButtons {
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    
+    
+}
+.letterButtons >.btn {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    background-color: #fCBA29;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.letterButtons > .correct {
+    background-color: green;
+}
+.letterButtons > .wrong {
+    background-color: red;
+}
+.letterButtons >.btn:disabled {
+    opacity: 0.7;
+}
+/*  */
+.guessCounter {
+  text-align: center;
+  background-color: #262626;
+  color: #f9f4da;                
+  padding: 0;          
+  margin: 2px auto;
+  margin-top: 0;
+  width: fit-content;             
+  border-radius: 4px;
+  font-size: 1rem;
+  min-height: 2rem;             
+  line-height: 1rem;            
+}
+
+/* New game button */
+.newGameButton {
+ display: flex;
+ justify-content: center;
+ 
+}
+.newGameButton > .newGameBtn {
+    align-self: center;
+    display: inline-block;
+    color: rgb(6, 56, 100);
+    background-color: rgb(12, 202, 240);
+    border-radius: 4px;
+    width: 40%;
+    height: 30px;
+    border: 1px solid whitesmoke;
+    cursor: pointer;
+     z-index: 999; 
+}
+.newGameButton > .newGameBtn:hover {
+    background-color: rgb(50, 93, 188);
+    color: #F9F4DA;
+}
+
+
+
+
+
+
