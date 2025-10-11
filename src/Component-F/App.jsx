@@ -158,7 +158,7 @@ function resetGame() {
         <p>
           {missedCount === 1
             ? "That was so close! 😅" 
-            : "You lose! Better start learning Assembly."} 
+            : "You lose! Better start learning Assembly!!!"} 
         </p>
       </>
     )

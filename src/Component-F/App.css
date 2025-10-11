@@ -10,13 +10,9 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-   
 }
 /* main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  
+   border-
 } */
 .header {
     text-align: center;
@@ -260,6 +256,39 @@ border-bottom-color: white;
     background-color: rgb(50, 93, 188);
     color: #F9F4DA;
 }
+/* Small devices / phones */
+@media screen and (max-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column; /* often better for narrow devices */
+  }
+}
+
+/* Medium devices / tablets / iPads */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;       /* a bit more space for bigger screens */
+    flex-direction: row; /* or column, depending on your layout */
+  }
+}
+
+/* Optional: Large screens / desktops */
+@media screen and (min-width: 1025px) {
+  body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4rem;
+    flex-direction: row;
+  }
+}
+
 
 
 

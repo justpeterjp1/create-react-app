@@ -1,7 +1,7 @@
 export default function randomWord() {
     const randomIndex = Math.floor(Math.random() * gameWords.length)
     const gameWord = gameWords[randomIndex];
-      console.log("Selected word:", gameWord);
+      // console.log("Selected word:", gameWord);
     return gameWord
     
 }
