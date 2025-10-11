@@ -10,16 +10,7 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-
-      min-height: 100vh;       
-  margin: 0;                   
-  padding: 2rem;                
-  border: 6px solid #4c1ba8;  
-  border-radius: 12px;          
-  box-sizing: border-box;      
-      
-  flex-direction: row;        
-  overflow: hidden;              
+    overflow: hidden;           
 }
 /* main {
    border-
@@ -113,7 +104,7 @@ span {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,6 +206,9 @@ border-bottom-color: white;
     height: 35px;
     width: 35px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rrem;
+    color: #262626;
     background-color: #fCBA29;
     border: 1px solid #D7D7D7;
     border-radius: 4px;
@@ -222,12 +216,14 @@ border-bottom-color: white;
 }
 .letterButtons > .correct {
     background-color: green;
+    color: #fff;
 }
 .letterButtons > .wrong {
     background-color: red;
+    color: #fff;
 }
 .letterButtons >.btn:disabled {
-    opacity: 0.7;
+    opacity: 0.9;
 }
 /*  */
 .guessCounter {
@@ -267,7 +263,25 @@ border-bottom-color: white;
     color: #F9F4DA;
 }
 /* Small devices / phones */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
+  .status, .farewell {
+    padding: 12px 16px;   /* more breathing room */
+    font-size: 0.9rem;    /* scale down a bit */
+    min-height: auto;     /* let height adjust naturally */
+  }
+
+  .status > h2 {
+    font-size: 1.1rem;   /* smaller for small screens */
+    margin: 2px 0;
+  }
+
+  .status > p {
+    font-size: 0.9rem;   /* smaller paragraph text */
+    margin: 2px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
   body {
     display: flex;
     justify-content: center;
@@ -275,16 +289,55 @@ border-bottom-color: white;
     gap: 2rem;
     flex-direction: column; /* often better for narrow devices */
   }
+  .letterButtons >.btn  {
+    color: #555;
+  }
+  .header > h1 {
+    font-size: 1.25rem;
+  }
+  .header > p {
+    font-size: 0.9rem;
+  }
+  .status > h2, .status > p,
+  .farewell > p {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+  .guessWordSpan {
+    width: 1.6rem;
+    height: 2rem;
+    font-size: 0.85rem;
+  }
+  .letterButtons > .btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .newGameButton > .newGameBtn {
+    width: 70%;
+    height: 30px;
+    font-size: 0.9rem;
+  }
 }
 
 /* Medium devices / tablets / iPads */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 481px) and (max-width: 1024px) {
   body {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3rem;       /* a bit more space for bigger screens */
     flex-direction: row; /* or column, depending on your layout */
+  }
+  .letterButtons > .btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  .guessWordSpan {
+    width: 1.8rem;
+    height: 2.2rem;
+    font-size: 0.9rem;
   }
 }
 
