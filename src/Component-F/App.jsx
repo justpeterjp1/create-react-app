@@ -5,13 +5,13 @@ import "@fontsource/hanken-grotesk";
 import languages from "./language"
 import Confetti from 'react-confetti';
 import randomWord from "./words"
-import gamelost from "./gameLost.png"
+
 
 const AssemblyEndGame = () => {
     // STATES
     const [currentWord, setCurrentWord] = React.useState(() => randomWord())
     const [guessedLetters, setGuessedLetters] = React.useState([]);
-    const word = randomWord()
+  
 
 
 
@@ -47,7 +47,7 @@ if (wrongGuessCount > 0 && wrongGuessCount < maxWrongGuesses) {
   farewellMessage = languages[wrongGuessCount - 1].farewell;
 }
 // Map through the word to be guessed to display a span of individual letters
-  const wordArray = currentWord.split("")
+  // const wordArray = currentWord.split("")
 const gameWord = currentWord.split("").map((letter, index) => {
   const isGuessed = guessedLetters.includes(letter);
 
@@ -174,7 +174,6 @@ function resetGame() {
 
 {isGameLost && (
   <section className="overlay">
-    <img src={gamelost} className='sad-emoji' alt="game-lost" />
   </section>
 )}
 
