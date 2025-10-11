@@ -10,7 +10,7 @@ import gamelost from "./gameLost.png"
 const AssemblyEndGame = () => {
     // STATES
     const [currentWord, setCurrentWord] = React.useState(() => randomWord())
-    const [guessedLetters, setGuessedLetters] = React.useState([])
+    const [guessedLetters, setGuessedLetters] = React.useState([]);
     const word = randomWord()
 
 
@@ -37,6 +37,10 @@ const isGameOver = isGameWon || isGameLost
 const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
 const numGessesLeft = languages.length - 1
 
+const missedCount = currentWord.split("").filter(
+  letter => !guessedLetters.includes(letter)
+).length;
+
 //   Farewell text logic
 let farewellMessage = "";
 if (wrongGuessCount > 0 && wrongGuessCount < maxWrongGuesses) {
@@ -44,21 +48,28 @@ if (wrongGuessCount > 0 && wrongGuessCount < maxWrongGuesses) {
 }
 // Map through the word to be guessed to display a span of individual letters
   const wordArray = currentWord.split("")
-  const gameWord = wordArray.map((word, index) => {
-      const isGuessed = guessedLetters.includes(word)
-      const isCorrect = isGuessed && currentWord.includes(word)
-      const className = clsx({
-          guessWordSpan: true,
-          display: isCorrect || isGameOver,
-          gameOver: isGameOver && !isCorrect
-        }) 
-       
-    return (
-      <span key={index} className={className}>
-         {word}
-      </span>
-    )
-  })
+const gameWord = currentWord.split("").map((letter, index) => {
+  const isGuessed = guessedLetters.includes(letter);
+
+  let displayLetter = "";
+  if (isGuessed) {
+    displayLetter = letter; // guessed letters
+  } else if (isGameOver) {
+    displayLetter = letter; // reveal missed letters at game over
+  } // else leave displayLetter as ""
+
+  const className = clsx("guessWordSpan", {
+    display: isGuessed,                 // style for guessed letters
+    gameOver: isGameOver && !isGuessed, // highlight missed letters
+  });
+
+  return (
+    <span key={index} className={className}>
+      {displayLetter}
+    </span>
+  );
+});
+
 
   // Display keyboard letters as buttons
   const letters = "abcdefghijklmnopqrstuvwxyz"
@@ -112,7 +123,9 @@ const gameOverClass = clsx({
 // Cleanup functions
 
 function resetGame() {
-    setGuessedLetters([])
+    const newWord = randomWord();
+    setCurrentWord(newWord);
+    setGuessedLetters([]);
 }
   return (
     <main>
@@ -128,21 +141,36 @@ function resetGame() {
         </p>
       </header>
 
-    <section className={gameOverClass}>
+  <section className={gameOverClass}>
   {isGameOver ? (
     isGameWon ? (
       <>
         <h2>You Win!</h2>
-        <p>Well done! 🏆</p>
+        <p>
+          {wrongGuessCount === 0
+            ? "You're on fire! 🔥"   
+            : "Well done! 🏆"}       
+        </p>
       </>
     ) : (
       <>
         <h2>Game Over!</h2>
-        <p>You lose! Better start learning Assembly.</p>
+        <p>
+          {missedCount === 1
+            ? "That was so close! 😅" 
+            : "You lose! Better start learning Assembly."} 
+        </p>
       </>
     )
-  ) :  farewellMessage && (<p aria-live='polite' role='status' className="farewell">{farewellMessage}</p>) }
+  ) : (
+    farewellMessage && (
+      <p aria-live="polite" role="status" className="farewell">
+        {farewellMessage}
+      </p>
+    )
+  )}
 </section>
+
 
 {isGameLost && (
   <section className="overlay">

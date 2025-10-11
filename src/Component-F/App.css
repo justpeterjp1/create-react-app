@@ -107,7 +107,7 @@ span {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,14 +135,6 @@ h4 {
 }
 
 /* Words Guessing Section */
-.gameLetters {
-  background-color: #323232;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 12px;
-  margin-bottom: 20px;  
-}
 .sr-only {
     position: absolute;
     width: 1px;
@@ -154,29 +146,51 @@ h4 {
     border: 0;
     clip: rect(0, 0, 0, 0);
 }
-
-.guessWordSpan {
-  display: inline-block;
+.gameLetters {
+  background-color: #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 20px;
+  max-width: 95vw;
   color: #3a3a3a;
-  text-transform: uppercase;
-  padding: 5px 8px;
-  margin: 10px;
-  line-height: 1.2;
-  border-bottom: 3px solid currentColor;
-  border-radius: 2px;
-  background-color: #3a3a3a;
-  transition: all 0.3s ease;
 }
 
+.guessWordSpan {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.2rem;
+  height: 2.6rem;
+  text-transform: uppercase;
+  color: #3a3a3a;
+  background-color: #3a3a3a;
+  border-bottom: 3px solid aliceblue;
+  transition: color 0.3s ease;
+border-bottom-color: white;
+  letter-spacing: 0.05rem;
+  margin: 1px;
+}
 .guessWordSpan.hidden {
-  color: transparent;
-  border-bottom-color: aliceblue;
+ color: #3a3a3a;          
+  border-bottom-color: aliceblue; 
+  background-color: #3a3a3a;
+  margin: 1px;
 }
 
 .guessWordSpan.display {
+  visibility: visible;
   color: #fff;
+  margin: 1px;
   border-bottom-color: #4c1ba8;
 }
+
+
+
 .gameOver {
     background-color: rgba(214, 52, 52, 0.539);
 }
