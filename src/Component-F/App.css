@@ -10,6 +10,16 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
+
+      min-height: 100vh;       
+  margin: 0;                   
+  padding: 2rem;                
+  border: 6px solid #4c1ba8;  
+  border-radius: 12px;          
+  box-sizing: border-box;      
+      
+  flex-direction: row;        
+  overflow: hidden;              
 }
 /* main {
    border-
