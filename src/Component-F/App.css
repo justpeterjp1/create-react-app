@@ -245,7 +245,8 @@ border-bottom-color: white;
 .newGameButton {
   display: flex;
   justify-content: center;
-  min-height: 50px;      
+  min-height: 50px;
+  
   
 }
 
@@ -261,10 +262,11 @@ border-bottom-color: white;
     background-color: rgb(12, 202, 240);
     border-radius: 4px;
     width: 40%;
-    height: 30px;
+    height: 40px;
     border: 1px solid whitesmoke;
     cursor: pointer;
-     z-index: 999; 
+     z-index: 999;
+     width: 60%;   
 }
 .newGameButton > .newGameBtn:hover {
     background-color: rgb(50, 93, 188);
