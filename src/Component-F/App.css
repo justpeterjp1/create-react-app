@@ -10,7 +10,8 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    overflow: hidden;           
+    overflow: hidden; 
+    align-items: center;          
 }
 /* main {
    border-
@@ -245,7 +246,7 @@ border-bottom-color: white;
   display: flex;
   justify-content: center;
   min-height: 50px;      
-  /* transition: all 0.1s ease; */
+  
 }
 
 .newGameButton.hidden {
@@ -272,18 +273,18 @@ border-bottom-color: white;
 /* Small devices / phones */
 @media screen and (max-width: 480px) {
   .status, .farewell {
-    padding: 12px 16px;   /* more breathing room */
-    font-size: 0.9rem;    /* scale down a bit */
-    min-height: auto;     /* let height adjust naturally */
+    padding: 12px 16px;  
+    font-size: 0.9rem;    
+    min-height: auto;   
   }
 
   .status > h2 {
-    font-size: 1.1rem;   /* smaller for small screens */
+    font-size: 1.1rem;   
     margin: 2px 0;
   }
 
   .status > p {
-    font-size: 0.9rem;   /* smaller paragraph text */
+    font-size: 0.9rem;  
     margin: 2px 0;
   }
 }
@@ -294,7 +295,7 @@ border-bottom-color: white;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    flex-direction: column; /* often better for narrow devices */
+    flex-direction: column; 
   }
   .letterButtons >.btn  {
     color: #555;
@@ -334,8 +335,8 @@ border-bottom-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;       /* a bit more space for bigger screens */
-    flex-direction: row; /* or column, depending on your layout */
+    gap: 3rem;      
+  
   }
   .letterButtons > .btn {
     width: 35px;
@@ -349,16 +350,8 @@ border-bottom-color: white;
   }
 }
 
-/* Optional: Large screens / desktops */
-@media screen and (min-width: 1025px) {
-  body {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 4rem;
-    flex-direction: row;
-  }
-}
+
+
 
 
 
