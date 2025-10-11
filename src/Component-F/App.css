@@ -242,10 +242,17 @@ border-bottom-color: white;
 
 /* New game button */
 .newGameButton {
- display: flex;
- justify-content: center;
- 
+  display: flex;
+  justify-content: center;
+  min-height: 50px;      
+  /* transition: all 0.1s ease; */
 }
+
+.newGameButton.hidden {
+  visibility: hidden;     
+  opacity: 0;             
+}
+
 .newGameButton > .newGameBtn {
     align-self: center;
     display: inline-block;
@@ -302,6 +309,7 @@ border-bottom-color: white;
   .farewell > p {
     font-size: 0.85rem;
     padding: 8px;
+    margin: 0;
   }
   .guessWordSpan {
     width: 1.6rem;

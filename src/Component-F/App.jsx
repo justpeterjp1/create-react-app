@@ -217,13 +217,15 @@ function resetGame() {
         <p>Wrong guesses: {wrongGuessCount} / 7 </p>
       </section>
 
-        { isGameOver  && (<section className='newGameButton'>
-        <button
-        onClick={resetGame} 
-            className="newGameBtn">
-          New Game
-        </button>
-      </section>)}
+      <section className={`newGameButton ${!isGameOver ? "hidden" : ""}`}>
+  <button
+    onClick={resetGame}
+    className="newGameBtn"
+  >
+    New Game
+  </button>
+</section>
+
     </main>    
   )
 }
