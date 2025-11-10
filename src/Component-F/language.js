@@ -1,5 +1,5 @@
 
-export default [
+const languages = [
     { language: "Python", 
     backgroundColor: "#3776ab", 
     color: "#ffffff", 
@@ -19,3 +19,5 @@ export default [
 //   { language: "Swift", backgroundColor: "#fa7343", color: "#ffffff" },
 //   { language: "Rust", backgroundColor: "#dea584", color: "#000000" }
 ];
+
+export default languages;
