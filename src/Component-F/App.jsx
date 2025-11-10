@@ -11,7 +11,7 @@ const AssemblyEndGame = () => {
     // STATES
     const [currentWord, setCurrentWord] = React.useState(() => randomWord())
     const [guessedLetters, setGuessedLetters] = React.useState([]);
-  
+    const [hintUsed, setHintUsed] = React.useState(false);
 
 
 
@@ -35,7 +35,7 @@ const isGameLost = wrongGuessCount >=  maxWrongGuesses;
 const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
 const isGameOver = isGameWon || isGameLost
 const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
-const numGessesLeft = languages.length - 1
+const numGuessesLeft = languages.length - 1
 
 const missedCount = currentWord.split("").filter(
   letter => !guessedLetters.includes(letter)
@@ -114,6 +114,25 @@ const gameWord = currentWord.split("").map((letter, index) => {
     )
   })
 
+  
+  // ====== HINT LOGIC ======
+// Can only use hint if: at least one wrong guess AND hint not already used
+const canUseHint = wrongGuessCount > 0 && !hintUsed && !isGameOver;
+
+function useHint() {
+    if (!canUseHint) return;
+
+    // Find the first unguessed letter in the word
+    const firstUnguessedLetter = currentWord
+        .split("")
+        .find(letter => !guessedLetters.includes(letter));
+
+    if (firstUnguessedLetter) {
+        setGuessedLetters(prev => [...prev, firstUnguessedLetter]);
+        setHintUsed(true);
+    }
+}
+
 const gameOverClass = clsx({
     neutral: true,
     status: true,
@@ -126,6 +145,7 @@ function resetGame() {
     const newWord = randomWord();
     setCurrentWord(newWord);
     setGuessedLetters([]);
+    setHintUsed(false);
 }
   return (
     <main>
@@ -137,7 +157,8 @@ function resetGame() {
         <h1>Assembly: Endgame</h1>
         <p>
           Guess the word within 7 attempts to keep the
-          programming world safe from Assembly!
+          programming world safe from Assembly! You've been given
+          a hint to help you on your mission. Use it wisely!
         </p>
       </header>
 
@@ -187,12 +208,41 @@ function resetGame() {
       <section className="gameLetters">
         {gameWord}
       </section>
+
+      {/* HINT BUTTON  */}
+<section className="hint-section">
+    <button
+        onClick={useHint}
+        disabled={!canUseHint}
+        className={clsx(
+            "hint-button",
+            {
+                "active": canUseHint,
+                "disabled": !canUseHint
+            }
+        )}
+        title={
+            hintUsed 
+                ? "Hint already used" 
+                : wrongGuessCount === 0 
+                ? "Make at least one wrong guess to unlock hint"
+                : "Get the first unguessed letter"
+        }
+    >
+        💡 Hint {hintUsed ? "(Used)" : `(${canUseHint ? "Available" : "Locked"})`}
+    </button>
+    {wrongGuessCount === 0 && !hintUsed && (
+        <p className="hint-info">
+            Hint unlocks after your first wrong guess
+        </p>
+    )}
+</section>
       
        <section className="sr-only" aria-live="polite" role="status">
         <p>{currentWord.includes(lastGuessedLetter) ? 
             `Correct! The letter ${lastGuessedLetter} is in the word` :
             `Sorry, The letter ${lastGuessedLetter} is not in the word  `
-        } You have {numGessesLeft} attempts left
+        } You have {numGuessesLeft} attempts left
         </p>
       <p>
         Current word:{" "}
